@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Het Kan - Nederlandse Verkiezingskeuzes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* Placeholder for user's photo - they can replace this with:
+               background-image: url('your-photo.jpg'); 
+               background-size: cover;
+               background-position: center;
+               opacity: 0.3; */
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+
+        .election-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .election-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .election-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .election-item.last {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 3px solid #ff6b6b;
+        }
+
+        .voting-mark {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            background: #000;
+            border-radius: 5px;
+            margin-right: 25px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .voting-mark .circle {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .voting-mark .red-mark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            width: 40px;
+            height: 4px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+
+        .voting-mark .red-mark::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%) rotate(90deg);
+            width: 40px;
+            height: 4px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+
+        .election-info {
+            flex: 1;
+        }
+
+        .party-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .year {
+            font-size: 1em;
+            color: #7f8c8d;
+        }
+
+        .payoff {
+            margin-top: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .party-name {
+                font-size: 1.4em;
+            }
+
+            .payoff {
+                font-size: 1.2em;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nederlandse Verkiezingskeuzes</h1>
+        <p class="subtitle">Mijn stemgeschiedenis sinds 1989</p>
+        
+        <ul class="election-list">
+            <li class="election-item">
+                <div class="voting-mark">
+                    <div class="circle">
+                        <div class="red-mark"></div>
+                    </div>
+                </div>
+                <div class="election-info">
+                    <div class="party-name">CPN</div>
+                    <div class="year">Communistische Partij Nederland</div>
+                </div>
+            </li>
+            
+            <li class="election-item">
+                <div class="voting-mark">
+                    <div class="circle">
+                        <div class="red-mark"></div>
+                    </div>
+                </div>
+                <div class="election-info">
+                    <div class="party-name">SP</div>
+                    <div class="year">Socialistische Partij</div>
+                </div>
+            </li>
+            
+            <li class="election-item">
+                <div class="voting-mark">
+                    <div class="circle">
+                        <div class="red-mark"></div>
+                    </div>
+                </div>
+                <div class="election-info">
+                    <div class="party-name">GroenLinks</div>
+                    <div class="year">GroenLinks</div>
+                </div>
+            </li>
+            
+            <li class="election-item">
+                <div class="voting-mark">
+                    <div class="circle">
+                        <div class="red-mark"></div>
+                    </div>
+                </div>
+                <div class="election-info">
+                    <div class="party-name">GroenLinks</div>
+                    <div class="year">GroenLinks</div>
+                </div>
+            </li>
+            
+            <li class="election-item last">
+                <div class="voting-mark">
+                    <div class="circle">
+                        <div class="red-mark"></div>
+                    </div>
+                </div>
+                <div class="election-info">
+                    <div class="party-name">CDA</div>
+                    <div class="year">Christen-Democratisch Appèl</div>
+                </div>
+            </li>
+        </ul>
+        
+        <div class="payoff">
+            "Als het niet kan zoals het moet, dan moet het maar zoals het kan"
+        </div>
+    </div>
+</body>
+</html>
